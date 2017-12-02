@@ -1088,6 +1088,14 @@ cookieはTLD+1をこえることはできない
       var slideshow = remark.create({
         // sourceUrl: 'slide.md'
       });
+
+      slideshow.on('afterShowSlide', function (slide) {
+        console.log('change')
+        if(window.tracker) window.tracker.view()
+      });
+      if (document.getElementsByClassName('remark-presenter-mode').length <= 0) {
+        slideshow.togglePresenterMode()
+      }
     </script>
   </body>
 </html>
